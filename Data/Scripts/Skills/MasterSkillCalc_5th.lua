@@ -157,16 +157,33 @@ function WindSoul_5thEnchant_Lord(InDamage, Strength, Dexterity, Vitality, Energ
 	local OutDamage = 0
 	
 	if (BarrageCount == 1) then
-        OutDamage = InDamage * (Energy / 25 + 200) / 100
+        OutDamage = InDamage
     elseif (BarrageCount == 2) then
-        OutDamage = InDamage * (Energy / 25 + 200) / 100
+        OutDamage = InDamage
     elseif (BarrageCount == 3) then
-        OutDamage = InDamage * (Energy / 25 + 200) / 100
+        OutDamage = InDamage
     elseif (BarrageCount == 4) then
-        OutDamage = InDamage * (Energy / 25 + 200) / 100
+        OutDamage = InDamage
 	elseif (BarrageCount == 5) then
-        OutDamage = InDamage * (Energy / 25 + 200) / 100
+        OutDamage = InDamage
 	end
+	return OutDamage
+end
+
+-- SkillID: 2096, Spirit Blast of Anger
+function SpiritBlast_5thEnchant_Lord(InDamage, Strength, Dexterity, Vitality, Energy, Command, BarrageCount)
+	local OutDamage = 0
+	
+	if (BarrageCount == 1) then
+		OutDamage = InDamage
+	elseif (BarrageCount == 2) then
+		OutDamage = InDamage
+	elseif (BarrageCount == 3) then
+		OutDamage = InDamage
+	elseif (BarrageCount == 4) then
+		OutDamage = InDamage
+	end
+
 	return OutDamage
 end
 

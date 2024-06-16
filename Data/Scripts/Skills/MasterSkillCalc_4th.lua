@@ -6,7 +6,7 @@
 -- // == File is a part of IGCN Group MuOnline Server files.
 -- // ============================================================
 
--- MasterSkillCalc Control Script, Lua v5.2
+-- MasterSkillCalc Control Script, Lua v5.3
 -- Skill Tree Skill Configuration (Result, Time) - Can be modified to adjust for own needs
 
 -- SkillID refers to Index of skill in \Data\Skills\SkillList.txt
@@ -99,27 +99,42 @@ function WindSoul_4thEnchant_Lord(InDamage, Strength, Dexterity, Vitality, Energ
 	local OutDamage = 0
 	
 	if (BarrageCount == 1) then
-        OutDamage = InDamage * (Energy / 25 + 200) / 100
+        OutDamage = InDamage
     elseif (BarrageCount == 2) then
-        OutDamage = InDamage * (Energy / 25 + 200) / 100
+        OutDamage = InDamage
     elseif (BarrageCount == 3) then
-        OutDamage = InDamage * (Energy / 25 + 200) / 100
+        OutDamage = InDamage
     elseif (BarrageCount == 4) then
-        OutDamage = InDamage * (Energy / 25 + 200) / 100
+        OutDamage = InDamage
     end
 	
 	return OutDamage
 end
 
-function ChaoticDiseier_4thEnchant_Lord(InDamage, Energy)
-	local OutDamage = InDamage * (Energy / 25 + 200) / 100
+function ChaoticDiseier_4thEnchant_Lord(InDamage, Strength, Dexterity, Vitality, Energy, Command)
+	local OutDamage = InDamage
 	
 	return OutDamage
 end
 
-function FireBurst_4thEnchant_Lord(InDamage, Energy)
-	local OutDamage = (InDamage * (((Energy) / 20 + 200))) / 100;
+function FireBurst_4thEnchant_Lord(InDamage, Strength, Dexterity, Vitality, Energy, Command)
+	local OutDamage = InDamage
 	
+	return OutDamage
+end
+
+-- SkillID: 1240, Spirit Blast Enhancement Skill
+function SpiritBlast_4thEnchant_Lord(InDamage, Strength, Dexterity, Vitality, Energy, Command, BarrageCount)
+	local OutDamage = 0
+	
+	if (BarrageCount == 1) then
+		OutDamage = InDamage
+	elseif (BarrageCount == 2) then
+		OutDamage = InDamage
+	elseif (BarrageCount == 3) then
+		OutDamage = InDamage
+	end
+
 	return OutDamage
 end
 

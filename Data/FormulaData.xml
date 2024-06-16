@@ -3,7 +3,7 @@
 // ============================================================
 // == INTERNATIONAL GAMING CENTER NETWORK
 // == www.igcn.mu
-// == (C) 2023 IGC-Network (R)
+// == (C) 2010-2024 IGC-Network (R)
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // == File is a part of IGCN Group MuOnline Server files.
 // ============================================================
@@ -113,13 +113,34 @@
 //		~ 36: Elemental Damage Increase
 //		~ 37: Duration time for formulas 36 and 38
 //		~ 38: Elemental Defense Increase
-//		~ 39: Dex Booster Duration Time
-//		~ 40: Dex Booster Attack Speed Increase
+//		~ 39: DEX Booster Duration Time
+//		~ 40: DEX Booster Attack Speed Increase
 //		~ 42: Illusion Blade Attack Damage
 //		~ 44: Wrath Combat Power Increase
 //		~ 45: Oversting damage decrease
 //		~ 46: Wrath Attack Increase
 //		~ 47: Wrath Defense Decrease
+//		~ 48: Crown Force Increase All Stats
+//		~ 49: Crown Force Duration Time
+//		~ 50: Lord Dignity Critical and Excellent Damage Increase
+//		~ 51: Lord Dignity Duration Time
+//		~ 52: Dark Lord Mastery Shield Defense Increase Percent, applies when riding Divine Horse)
+//		~ 53: Dark Lord Mastery Shield Elemental Defense Increase Percent, applies when riding Divine Horse)
+//		~ 54: Skill Attack Power Increase of Dark Lord class
+//		~ 55: Battle Glory Combat Power Increase
+//		~ 56: Battle Glory Attack Power Increase
+//
+// ### FormulaData::GuardianItem::Formula ###
+//	ID: Next unique ID of formula, starts from 0
+//	Data: The formula data, no spaces
+//
+// ### FormulaData::Earrings::Formula ###
+//	ID: Next unique ID of formula, starts from 0
+//	Data: The formula data, no spaces
+//
+// ### FormulaData::ArtifactOption::Formula ###
+//	ID: Next unique ID of formula, starts from 0
+//	Data: The formula data, no spaces
 //
 // ### FormulaData::CombatPower::Formula ###
 //	ID: Next unique ID of formula, starts from 0
@@ -138,6 +159,7 @@
 //		~ 11: Base Combat Power formula for Rage Fighter class
 //		~ 12: Base Combat Power formula for Slayer class
 //		~ 13: Base Combat Power formula for Grow Lancer class
+//		~ 14: Base Combat Power formula for Dark Lord class
 //
 // ### FormulaData::Wing5thDamage::Formula ###
 //	ID: Next unique ID of formula, starts from 0
@@ -152,7 +174,31 @@
 //		~ 1: Fifth Wings Damage Correction
 //		~ 2: Wing Core Wing attack power/magic power/curse power increase
 //		~ 3: 
-
+//
+// ### FormulaData::AbilityTree::Formula ###
+//	ID: Next unique ID of formula, starts from 0
+//	Data: The formula data, no spaces
+//	
+// ### FormulaData::PetItem::Formula ###
+//	ID: Next unique ID of formula, starts from 0
+//	Data: The formula data, no spaces
+//		~ 0: Max Pet Level for Divine Horse
+//		~ 1: Exp Table formula for Divine Horse
+//		~ 4: Divine Horse Sell Price Formula, 255 * result of formula
+//		~ 5: Divine Horse Defense Increase Percent
+//		~ 6: Divine Horse Elemental Defense Increase Percent
+//		~ 7: Max Pet Level for Divine Spirit
+//		~ 8: Exp Table formula for Divine Spirit
+//		~ 11: Divine Spirits Sell Price Formula, 255 * result of formula
+//		~ 20: Divine Spirits Attack Speed
+//		~ 21: Divine Spirits Attack Success Rate
+//		~ 22: Divine Spirits Max Attack Power Limit
+//		~ 23: Divine Spirits Max Attack Speed Limit
+//		~ 24: Divine Horse and Dark Lord Mastery Shield Max Defense Increase Limit
+//		~ 25: Divine Horse and Dark Lord Mastery Shield Max Elemental Defense Increase Limit
+//		~ 26: Divine Spirits Minimum Attack Power
+//		~ 27: Divine Spirits Maximum Attack Power
+//
 // ### FormulaData::LevelExp::Formula ###
 //	ID: Next unique ID of formula, starts from 0
 //	Data: The formula data, no spaces
@@ -180,7 +226,6 @@
 		<!-- <Formula ID="7" Data="((((%d+700)*15)+(((((%d+700)*15)*0.2)/500)*(%d-(%d+700))))-(((%d-(%d+700))*15)+(((((%d-(%d+700))*15)*0.2)/500)*(%d-(%d+700)))*((1+((%d-(%d+700))^1.1)/1000))*0.3))" /> -->
 		<Formula ID="5" Data="1" /> <!-- TotalLevel, MonsterExpLevel -->
 	</Exp>
-
 	<ExcellentOption>
 		<Formula ID="0" Data="(%d/100)*(%d/20)" /> <!-- ItemDropLevel, PlayerLevel -->
 		<Formula ID="1" Data="(%d/3.5)" /> <!-- ItemDropLevel -->
@@ -194,7 +239,6 @@
 		<Formula ID="9" Data="(%d*0.05)^1.4" /> <!-- ItemDropLevel -->
 		<Formula ID="10" Data="(%d-130)/10*15" /> <!-- ItemDropLevel -->
 	</ExcellentOption>
-	
 	<SetAddStatOption>
 		<Formula ID="0"	Data="%d/10" /> <!-- ItemLevel -->
 		<Formula ID="1"	Data="%d/5" /> <!-- ItemLevel -->
@@ -209,7 +253,6 @@
 		<Formula ID="10" Data="%d/20" /> <!-- ItemLevel -->
 		<Formula ID="11" Data="%d/10" /> <!-- ItemLevel -->
 	</SetAddStatOption>
-	
 	<SkillTree>
 		<Formula ID="0" Data="0" /> <!-- empty -->
 		<Formula ID="1" Data="1+((((((%d)-30)^3)+25000)/499)/6)" /> <!-- SkillPoint -->
@@ -528,6 +571,13 @@
 		<Formula ID="314" Data="((((((5+%d)^1.74)/4)*4)/5)*7.5)-20" /> <!-- SkillPoint -->
 		<Formula ID="315" Data="(0.9+(((((((%d-35)^3)+40440)/450)/3))))*3.3+7" /> <!-- SkillPoint -->
 		<Formula ID="316" Data="((((((5+%d)^1.85)/4)*4)/5)*7.6)+10" /> <!-- SkillPoint -->
+		<Formula ID="317" Data="((((((2+%d)^2)/10)*6)/7)*7.5)" /> <!-- SkillPoint -->
+		<Formula ID="318" Data="((0.85+(((%d-30)^3)+25000)/499/50*100/12)*6)" /> <!-- SkillPoint -->
+		<Formula ID="319" Data="%d*50" /> <!-- SkillPoint -->
+		<Formula ID="320" Data="%d*75" /> <!-- SkillPoint -->
+		<Formula ID="321" Data="(((%d+9)^1.2/4.4-1.92))" /> <!-- SkillPoint -->
+		<Formula ID="322" Data="((((((5+%d)^1.85)/4)*4)/5)*7.6)+20" /> <!-- SkillPoint -->
+		<Formula ID="323" Data="%d*1.5" /> <!-- SkillPoint -->
 	</SkillTree>
 	<SetOption>
 		<Formula ID="0" Data="((((%d*1.25)^1.48)+5)/1.1)" /> <!-- ItemLevel -->
@@ -720,6 +770,15 @@
 		<Formula ID="45" Data="(%d+%d)*0+5" /> <!-- Strength, Agility -->
 		<Formula ID="46" Data="(%d+%d)/3" /> <!-- Strength, Agility -->
 		<Formula ID="47" Data="%d*(((%d+%d)*0+0.05)*-1)" /> <!-- Defense, Strength, Agility -->
+		<Formula ID="48" Data="%d/100+%d*0" /> <!-- Command, Energy -->
+		<Formula ID="49" Data="((%d+%d)*0)+5*100" /> <!-- Command, Energy -->
+		<Formula ID="50" Data="(%d/4)+(%d*%d*0)" /> <!-- Command, Energy, Command -->
+		<Formula ID="51" Data="(%d/4)+(%d/10)+(%d*0)" /> <!-- Command, Energy, Command -->
+		<Formula ID="52" Data="((%d*0)+(%d*0)+(%d/50))" /> <!-- ItemLevel, ItemLevel, ItemDropLevel -->
+		<Formula ID="53" Data="((%d*0)+(%d*0)+(%d/70))" /> <!-- ItemLevel, ItemLevel, ItemDropLevel -->
+		<Formula ID="54" Data="250+(%d/20)+(%d/20)" /> <!-- Energy, Command -->
+		<Formula ID="55" Data="(%d+%d)*0+10" /> <!-- Command, Agility -->
+		<Formula ID="56" Data="(%d+%d)/3" /> <!-- Command, Agility -->
 	</Character>
 	<GuardianItem>
 		<Formula ID="0" Data="20+((9+%d)/2)^2" /> <!-- ItemLevel -->
@@ -773,6 +832,16 @@
 		<Formula ID="48" Data="((5.4+(%d/10))^4.2)" /> <!-- ItemLevel -->
 		<Formula ID="49" Data="((4.2+(0.5*%d))^1.72)" /> <!-- ItemLevel -->
 		<Formula ID="50" Data="((6+(%d/10))^4)" /> <!-- ItemLevel -->
+		<Formula ID="51" Data="(249+((15+%d)/2)^2)" /> <!-- ItemLevel -->
+		<Formula ID="52" Data="(249+((15+%d)/2)^2)" /> <!-- ItemLevel -->
+		<Formula ID="53" Data="(6+((%d/10)*1.9)^1.5)" /> <!-- ItemLevel -->
+		<Formula ID="54" Data="(6+((%d/10)*1.6)^1.49)" /> <!-- ItemLevel -->
+		<Formula ID="55" Data="%d*0" /> <!-- ItemLevel -->
+		<Formula ID="56" Data="((7+(%d/10))^3.9)" /> <!-- ItemLevel -->
+		<Formula ID="57" Data="((6.7+(%d/10))^4.2)" /> <!-- ItemLevel -->
+		<Formula ID="58" Data="((5.8+(%d/10))^4.2)" /> <!-- ItemLevel -->
+		<Formula ID="59" Data="((4.9+(0.5*%d))^1.72)" /> <!-- ItemLevel -->
+		<Formula ID="60" Data="((6.4+(%d/10))^4)" /> <!-- ItemLevel -->
 	</GuardianItem>
 	<Earrings>
 		<Formula ID="0" Data="(((%d*5)+70)/1.8)" /> <!-- ItemLevel -->
@@ -819,6 +888,7 @@
 		<Formula ID="11" Data="12+(%d/100)+(%d/100)" /> <!-- Agility, Vitality -->
 		<Formula ID="12" Data="10+(%d/100)" /> <!-- Agility -->
 		<Formula ID="13" Data="10+(%d/120)+(%d/130)" /> <!-- Strength, Agility -->
+		<Formula ID="14" Data="15+(%d/100)+(%d/90)" /> <!-- Command, Agility -->
 	</CombatPower>
 	<Wing5thDamage>
 		<Formula ID="0" Data="300+(%d^1.6*23)" /> <!-- WingsLevel -->
@@ -1114,7 +1184,38 @@
 		<Formula ID="280" Data="(25+%d*25)+((%d+%d)*0)" /> <!-- CardLevel, CardLevel -->
 		<Formula ID="281" Data="(25+%d*25)+((%d+%d)*0)" /> <!-- CardLevel, CardLevel -->
 		<Formula ID="282" Data="(15+%d*15)+((%d+%d)*0)" /> <!-- CardLevel, CardLevel -->
+		<Formula ID="283" Data="(((15+(%d*15))+((%d+1)*%d*2))*1.59+100)" /> <!-- CardLevel, CardLevel -->
 	</AbilityTree>
+	<PetItem>
+		<Formula ID="0" Data="50" /> <!-- None -->
+		<Formula ID="1" Data="(((%d*750000)*((%d-1))/10)+(%d-1)*1000000)+(%d*0)" /> <!-- PetLevel, PetLevel, PetLevel, PetLevel -->
+		<Formula ID="2" Data="4800" /> <!--  -->
+		<Formula ID="3" Data="1" /> <!--  -->
+		<Formula ID="4" Data="(10000+(((%d^1.1)*(%d^1.3))+(%d*21)))" /> <!-- PetLevel, PetLevel, PetLevel -->
+		<Formula ID="5" Data="2.75+(%d*0.25)+(%d*0)" /> <!-- PetLevel, PetLevel -->
+		<Formula ID="6" Data="1.75+(%d*0.25)+(%d*0)" /> <!-- PetLevel, PetLevel -->
+		<Formula ID="7" Data="50" /> <!-- None -->
+		<Formula ID="8" Data="(((%d*750000)*((%d-1))/10)+(%d-1)*1000000)+(%d*0)" /> <!-- PetLevel, PetLevel, PetLevel, PetLevel -->
+		<Formula ID="9" Data="4800" /> <!--  -->
+		<Formula ID="10" Data="1" /> <!--  -->
+		<Formula ID="11" Data="(10000+(((%d^1.1)*(%d^1.3))+(%d*21)))" /> <!-- PetLevel, PetLevel, PetLevel -->
+		<Formula ID="12" Data="2.65+(%d*0.35)+(%d*0)" /> <!--  -->
+		<Formula ID="13" Data="(%d+%f+%f)*(((%d+%d)*0)+1)*(1+(%f/100))" /> <!--  -->
+		<Formula ID="14" Data="(%d+%f+%f)*(((%d+%d)*0)+1)*(1+(%f/100))" /> <!--  -->
+		<Formula ID="15" Data="1+((%d+%d)*0)" /> <!--  -->
+		<Formula ID="16" Data="%d*0+10" /> <!--  -->
+		<Formula ID="17" Data="0.5" /> <!--  -->
+		<Formula ID="18" Data="0.5" /> <!--  -->
+		<Formula ID="19" Data="(250+(%d/20)+(%d/20))/100" /> <!--  -->
+		<Formula ID="20" Data="80+%d*3/5+%d/60" /> <!-- PetLevel, Command -->
+		<Formula ID="21" Data="(3000+((%d-399)/2)*14)+(%d*50)" /> <!-- CharacterTotalLevel, PetLevel -->
+		<Formula ID="22" Data="100000" /> <!-- None -->
+		<Formula ID="23" Data="200" /> <!-- None -->
+		<Formula ID="24" Data="1500" /> <!-- None -->
+		<Formula ID="25" Data="500" /> <!-- None -->
+		<Formula ID="26" Data="(((%d*4)+(%d*2.5))*(1+((%d/100)+(%d/5))/100))-100" /> <!-- PetLevel, CharacterTotalLevel, Energy, Command) -->
+		<Formula ID="27" Data="((%d*4)+(%d*2.5))*(1+((%d/100)+(%d/5))/100)" /> <!-- PetLevel, CharacterTotalLevel, Energy, Command) -->
+	</PetItem>
 	<LevelExp>
 		<Formula ID="0" Data="(9+%d)*%d*%d*10" /> <!-- RegularLevel, RegularLevel, RegularLevel -->
 		<Formula ID="1" Data="((9+%d)*%d*%d*10)+((9+(%d-255))*(%d-255)*(%d-255)*1000)" /> <!-- RegularLevel, RegularLevel, RegularLevel, RegularLevel, RegularLevel -->

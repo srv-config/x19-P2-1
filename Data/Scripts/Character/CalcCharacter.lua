@@ -6,7 +6,7 @@
 -- // == File is a part of IGCN Group MuOnline Server files.
 -- // ============================================================
 
--- CalcCharacter Control Script, Lua v5.2
+-- CalcCharacter Control Script, Lua v5.3
 -- Character Calculations Configuration - Can be modified to adjust for own needs
 -- For more CalcCharacter options refer to \Data\CalcCharacter.ini
 
@@ -115,10 +115,10 @@ function LordDamageCalc(Strength, Dexterity, Vitality, Energy, Command)
 	local AttackDamageMinRight = 0
 	local AttackDamageMaxRight = 0
 	
-	AttackDamageMinLeft = Strength / 7 + Energy / 14 -- Minimum Left Hand Damage
-	AttackDamageMinRight = Strength / 7 + Energy / 14 -- Minimum Right Hand Damage
-	AttackDamageMaxLeft = Strength / 5 + Energy / 10 -- Maximum Left Hand Damage
-	AttackDamageMaxRight = Strength / 5 + Energy / 10 -- Maximum Right Hand Damage
+	AttackDamageMinLeft = Strength / 7 + Energy / 14 + Command / 7 -- Minimum Left Hand Damage
+	AttackDamageMinRight = Strength / 7 + Energy / 14 + Command / 7 -- Minimum Right Hand Damage
+	AttackDamageMaxLeft = Strength / 5 + Energy / 10 + Command / 5 -- Maximum Left Hand Damage
+	AttackDamageMaxRight = Strength / 5 + Energy / 10 + Command / 5 -- Maximum Right Hand Damage
 	
 	return AttackDamageMinLeft, AttackDamageMinRight, AttackDamageMaxLeft, AttackDamageMaxRight
 end
@@ -489,7 +489,7 @@ function CalcAttackSuccessRate_PvM(Class, Strength, Dexterity, Vitality, Energy,
 	elseif(Class == CLASS_GLADIATOR) then
 		AttackSuccessRate = TotalLevel * 5 + Dexterity * 1.5 + Strength / 4
 	elseif(Class == CLASS_DARKLORD) then
-		AttackSuccessRate = TotalLevel * 5 + Dexterity * 3 + Strength / 4 + Command / 10
+		AttackSuccessRate = TotalLevel * 5 + (Dexterity * 2) / 3 + Strength / 4 + Command / 15
 	elseif(Class == CLASS_SUMMONER) then
 		AttackSuccessRate = TotalLevel * 5 + Dexterity * 1.5 + Strength / 4
 	elseif(Class == CLASS_RAGEFIGHTER) then

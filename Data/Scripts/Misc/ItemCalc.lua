@@ -48,24 +48,18 @@ function Wings_CalcAbsorb(WingID, WingLevel, WingKindB, MLS_WingOption)
 		OutAbsorb = 12 + (WingLevel * 2)
 	elseif (WingKindB == ITEM_KIND_B_WING_2ND) then
 		OutAbsorb = 25 + (WingLevel * 2)
-	elseif (WingKindB == ITEM_KIND_B_RAGEFIGHTER_CAPE or WingKindB == ITEM_KIND_B_LORD_CAPE) then	
+	elseif (WingKindB == ITEM_KIND_B_LORD_CAPE) then
+		OutAbsorb = 25 + (WingLevel * 2)
+	elseif (WingKindB == ITEM_KIND_B_RAGEFIGHTER_CAPE) then	
 		OutAbsorb = 10 + (WingLevel * 2)
-	elseif (WingKindB == ITEM_KIND_B_WING_3RD) then
-		if (WingID == MakeItemID(12,40) or WingID == MakeItemID(12,434)) then
-			BaseValue = 24
-		else
-			BaseValue = 39
-		end
-			
-		OutAbsorb = BaseValue + (WingLevel * 2)
+	elseif (WingKindB == ITEM_KIND_B_WING_3RD) then			
+		OutAbsorb = 39 + (WingLevel * 2)
 		
 		if (WingID ~= MakeItemID(12,268)) then
 			OutAbsorb = OutAbsorb + MLS_WingOption
 		end
 	elseif (WingKindB == ITEM_KIND_B_MONSTER_WING) then
-		if (WingID == MakeItemID(12,262) or WingID == MakeItemID(12,279) or WingID == MakeItemID(12,284)) then
-			BaseValue = 13
-		elseif (WingID == MakeItemID(12,263) or WingID == MakeItemID(12,280) or WingID == MakeItemID(12,285)) then
+		if (WingID == MakeItemID(12,262) or WingID == MakeItemID(12,279) or WingID == MakeItemID(12,284) or WingID == MakeItemID(12,263) or WingID == MakeItemID(12,280) or WingID == MakeItemID(12,285)) then
 			BaseValue = 30
 		elseif (WingID == MakeItemID(12,264) or WingID == MakeItemID(12,281) or WingID == MakeItemID(12,286) or WingID == MakeItemID(12,265) or WingID == MakeItemID(12,282) or WingID == MakeItemID(12,287)) then
 			BaseValue = 29
@@ -77,13 +71,7 @@ function Wings_CalcAbsorb(WingID, WingLevel, WingKindB, MLS_WingOption)
 	elseif (WingKindB == ITEM_KIND_B_GOLDCOLOSSUS_WING) then
 		OutAbsorb = 60 + WingLevel
 	elseif (WingKindB == ITEM_KIND_B_WING_4TH or WingKindB == ITEM_KIND_B_WING_5TH) then
-		if (WingID == MakeItemID(12,418) or WingID == MakeItemID(12,442) or WingID == MakeItemID(12,184)) then
-			BaseValue = 37
-		else
-			BaseValue = 43
-		end
-		
-		OutAbsorb = BaseValue + (WingLevel * 2)
+		OutAbsorb = 43 + (WingLevel * 2)
 	elseif (WingKindB == ITEM_KIND_B_POWER_WING) then
 		OutAbsorb = 65
 	else
@@ -187,6 +175,18 @@ function DarkSpirit_CalcValues(Command, PetLevel)
 	local SuccessAtkRate = PetLevel + PetLevel / 15 + 1000
 	
 	return AttackDamageMin, AttackDamageMax, CriticalDamage, ExcellentDamage, DoubleDamage, IgnoreEnemy, AttackSpeed, SuccessAtkRate
+end
+
+function DivineSpirit_CalcValues(Command, Energy, PetLevel, CharacterLevel, InAttackDamageMin, InAttackDamageMax)
+    local OutAttackDamageMin = InAttackDamageMin
+    local OutAttackDamageMax = InAttackDamageMax
+
+    local CriticalDamage = 30
+    local ExcellentDamage = Command / 200 + 3 + PetLevel / 20
+    local DoubleDamage = Command / 300 + 2 + PetLevel / 30
+    local IgnoreEnemy = Command / 400 + 1 + PetLevel / 40
+
+    return OutAttackDamageMin, OutAttackDamageMax, CriticalDamage, ExcellentDamage, DoubleDamage, IgnoreEnemy
 end
 
 function GoldHellMaine_DropWing()

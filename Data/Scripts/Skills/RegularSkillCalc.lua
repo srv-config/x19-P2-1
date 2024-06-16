@@ -28,6 +28,104 @@ CLASS_LIGHTWIZARD									  = 11
 CLASS_LEMURIAMAGE									  = 12
 CLASS_ILLUSIONKNIGHT								  = 13
 
+-- SkillID: 1, Poison
+function PoisonCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
+ local OutDamage = InDamage
+ 
+ return OutDamage
+end
+
+-- SkillID: 2, Meteorite
+function MeteoriteCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
+ local OutDamage = InDamage
+ 
+ return OutDamage
+end
+
+-- SkillID: 3, Lightning
+function LightningCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
+ local OutDamage = InDamage
+ 
+ return OutDamage
+end
+
+-- SkillID: 4, Fire Ball
+function FireBallCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
+ local OutDamage = InDamage
+ 
+ return OutDamage
+end
+
+-- SkillID: 5, Flame
+function FlameCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
+ local OutDamage = InDamage
+ 
+ return OutDamage
+end
+
+-- SkillID: 7, Ice
+function IceCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
+ local OutDamage = InDamage
+ 
+ return OutDamage
+end
+
+-- SkillID: 10, Hell Fire
+function HellFireCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
+ local OutDamage = InDamage
+ 
+ return OutDamage
+end
+
+-- SkillID: 11, Power Wave
+function PowerWaveCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
+ local OutDamage = InDamage
+ 
+ return OutDamage
+end
+
+-- SkillID: 12, Aqua Beam
+function AquaBeamCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
+ local OutDamage = InDamage
+ 
+ return OutDamage
+end
+
+-- SkillID: 13, Comet Fall
+function CometfallCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
+ local OutDamage = InDamage
+ 
+ return OutDamage
+end
+
+-- SkillID: 14, Inferno
+function InfernoCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
+ local OutDamage = InDamage
+ 
+ return OutDamage
+end
+
+-- SkillID: 17, Energy Ball
+function EnergyBallCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
+ local OutDamage = InDamage
+ 
+ return OutDamage
+end
+
+-- SkillID: 38, Decay
+function DecayCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
+ local OutDamage = InDamage
+ 
+ return OutDamage
+end
+
+-- SkillID: 39, Ice Storm
+function IceStormCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
+ local OutDamage = InDamage
+ 
+ return OutDamage
+end
+
 -- SkillID: 9, Evil Spirit
 function EvilSpiritCalc(Class, InDamage, Strength, Dexterity, Vitality, Energy)
  local OutDamage = 0
@@ -580,28 +678,28 @@ end
 
 -- SkillID: 60, Force
 function LordForceCalcDamage(InDamage, Strength, Dexterity, Vitality, Energy, Command)
-	local OutDamage = (InDamage * (( Energy / 20 + 200 ))) / 100
+	local OutDamage = InDamage
 	
 	return OutDamage
 end
 
 -- SkillID: 61, Fire Burst
 function LordFireBurstCalcDamage(InDamage, Strength, Dexterity, Vitality, Energy, Command)
-	local OutDamage = (InDamage * (( Energy / 20 + 200 ))) / 100
+	local OutDamage = InDamage
 	
 	return OutDamage
 end
 
 -- SkillID: 62, Earth-Shake
 function LordEarthShakeCalcDamage(InDamage, Strength, Dexterity, Vitality, Energy, Command)
-	local OutDamage = (InDamage * (( Energy / 20 + 200 ))) / 100
+	local OutDamage = InDamage
 	
 	return OutDamage
 end
 
--- SkillID: 64, Increase Critical Damage
-function DarkLordCriticalDamage(Index, TargetIndex, TargetClass, Command, Energy)
-	local SkillEffect = Command / 25 + Energy / 30
+-- SkillID: 64, Lord Dignity
+function LordLordDignity(Index, Command, Energy)
+	local SkillEffect = (Command / 25 + Energy / 30) / 10
 	local SkillTime = Energy / 10 + 60
 	
 	return SkillEffect, SkillTime
@@ -609,28 +707,28 @@ end
 
 -- SkillID: 65, Electric Spike
 function LordElectricSpikeCalcDamage(InDamage, Strength, Dexterity, Vitality, Energy, Command)
-	local OutDamage = (InDamage * (( Energy / 20 + 200 ))) / 100
+	local OutDamage = InDamage
 	
 	return OutDamage
 end
 
 -- SkillID: 74, Fire Blast
 function LordFireBlastCalcDamage(InDamage, Strength, Dexterity, Vitality, Energy, Command)
-	local OutDamage = (InDamage * (( Energy / 20 + 200 ))) / 100
+	local OutDamage = InDamage
 	
 	return OutDamage
 end
-	
+
 -- SkillID: 78, Fire Scream
 function LordFireScreamCalcDamage(InDamage, Strength, Dexterity, Vitality, Energy, Command)
-	local OutDamage = (InDamage * (( Energy / 20 + 200 ))) / 100
+	local OutDamage = InDamage
 	
 	return OutDamage
 end
 
 -- SkillID: 238, Chaotic Diseier
 function LordChaoticDiseierCalcDamage(InDamage, Strength, Dexterity, Vitality, Energy, Command)
-	local OutDamage = InDamage * (Energy / 25 + 200) / 100
+	local OutDamage = InDamage
 	
 	return OutDamage
 end
@@ -640,13 +738,26 @@ function LordWindSoulCalcDamage(InDamage, Strength, Dexterity, Vitality, Energy,
 	local OutDamage = 0
 	
 	if (BarrageCount == 1) then
-		OutDamage = InDamage * (Energy / 25 + 200) / 100
+		OutDamage = InDamage
 	elseif (BarrageCount == 2) then
-		OutDamage = InDamage * (Energy / 25 + 200) / 100
+		OutDamage = InDamage
 	elseif (BarrageCount == 3) then
-		OutDamage = InDamage * (Energy / 25 + 200) / 100
+		OutDamage = InDamage
 	end
+
+	return OutDamage
+end
+
+-- SkillID: 2095, Spirit Blast
+function LordSpiritBlastCalcDamage(InDamage, Strength, Dexterity, Vitality, Energy, Command, BarrageCount)
+	local OutDamage = 0
 	
+	if (BarrageCount == 1) then
+		OutDamage = InDamage
+	elseif (BarrageCount == 2) then
+		OutDamage = InDamage
+	end
+
 	return OutDamage
 end
 

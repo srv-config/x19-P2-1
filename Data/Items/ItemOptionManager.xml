@@ -3,7 +3,7 @@
 // ============================================================
 // == INTERNATIONAL GAMING CENTER NETWORK
 // == www.igcn.mu
-// == (C) 2019 IGC-Network (R)
+// == (C) 2010-2024 IGC-Network (R)
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // == File is a part of IGCN Group MuOnline Server files.
 // ============================================================
@@ -243,7 +243,7 @@
 	</Section>
 
 	<Section ID="37">
-		<Item Cat="13" Index="134" Option1="7" Value1="120" Option2="0" Value2="0" Time="-10" /> <!-- Worn Horseshoe -->
+		<Item Cat="13" Index="134" Option1="7" Value1="115" Option2="0" Value2="0" Time="-10" /> <!-- Worn Horseshoe -->
 	</Section>
 
 	<Section ID="38">
@@ -419,5 +419,12 @@
 	
 	<Section ID="88">
 		<Item Cat="14" Index="69" Option1="88" Value1="200" Option2="0" Value2="0" Time="1800" /> <!-- [PC Room][Bound] Blessing of Light (Advanced) -->
+	</Section>
+	
+	<Section ID="89">
+		<Item Cat="20" Index="247" Option1="0" Value1="0" Option2="0" Value2="0" Time="-10" /> <!-- Divine Horse -->
+		<Item Cat="20" Index="248" Option1="0" Value1="0" Option2="0" Value2="0" Time="-10" /> <!-- Fire Divine Spirit -->
+		<Item Cat="20" Index="249" Option1="0" Value1="0" Option2="0" Value2="0" Time="-10" /> <!-- Ice Divine Spirit -->
+		<Item Cat="20" Index="250" Option1="0" Value1="0" Option2="0" Value2="0" Time="-10" /> <!-- Holy Divine Spirit -->
 	</Section>
 </ItemOptionManager>
