@@ -3,7 +3,7 @@
 // ============================================================
 // == INTERNATIONAL GAMING CENTER NETWORK
 // == www.igcn.mu
-// == (C) 2023 IGC-Network (R)
+// == (C) 2010-2024 IGC-Network (R)
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // == File is a part of IGCN Group MuOnline Server files.
 // ============================================================
@@ -15,6 +15,7 @@
 // ### ChaosCastle ###
 //	Enable: Enabled or Disables the event, 0/10
 //	MinPlayer: Minimum player participating the event to start it
+//	AllowDarkLordSpirit: Whether or not, allow entry by Dark Lord while having Spirits equipped, 0/1
 //
 // ### ChaosCastle::Time ###
 //	StartIn: Time to start Chaos Castle from open time, minutes
@@ -53,7 +54,7 @@
 // STRICTLY NO COMMENTS INSIDE TAGS
 -->
 
-<ChaosCastle Enable="1" MinPlayer="1">
+<ChaosCastle Enable="1" MinPlayer="1" AllowDarkLordSpirit="1">
 	<Time StartIn="5" Duration="10" TownSpawn="1" />
 	
 	<Schedule>
