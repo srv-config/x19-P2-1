@@ -34,6 +34,7 @@
 //		~ 2: Regular + master level
 //
 //	MinLevel: Minimum level to perform reset
+//	AllowInOffLevel: Whether or not, allow auto reset while in Offline Leveling mode, 0/1
 //	MinVipType: Minimum VIP Level to use Resets System
 //	MaxInGameResets: Maximum number of resets that can be achieved by using in-game /reset command
 //	MaxWebResets: Maximum number of resets that can be achieved by character, not necessarily in-game but web module, must be equal or larger than MaxInGameResets
@@ -142,7 +143,7 @@
 -->
 
 <ResetSystem Enable="0" MaxDailyResets="10">
-<AutoReset Enable="0" MaxReset="-1" MaxGrandReset="-1" MinVipType="-1" MaxTime="-1" BlockManualReset="1" />
+<AutoReset Enable="0" MaxReset="-1" MaxGrandReset="-1" AllowInOffLevel="0" MinVipType="-1" MaxTime="-1" BlockManualReset="1" />
 <Requirements MinLevelMode="0" MinLevel="400" MaxInGameResets="100" MaxWebResets="100" MinVipType="-1" />
 <Settings RemoveEquipment="1" RemoveFromParty="1" EnableMuHelper="0" ClearBuffs="1" ResetStats="0" SaveOldStatPoint="0" MoveToCharSelectWindow="0" StayOnPosition="0" MaxResetPoints="0" 
 	LevelAfterReset="1" ResetMasterLevel="0" MasterLevelAfterReset="0" ResetMasterSkillTree="1" SkillTreePointsReturnMode="1" SkillTreePointsReturnReductionPercent="100" />
