@@ -679,7 +679,7 @@ function ForceWave_Master_Lord(InDamage, Strength, Dexterity, Vitality, Energy, 
 end
 
 -- SkillID: 511, Lord Dignity Strengthener - (Lord Emperor)
-function LordDignity_Level1_Lord(Index, Command, Energy)
+function LordDignity_Level1_Lord(Strength, Dexterity, Vitality, Energy, Command)
 	local SkillEffect = (Command / 25 + Energy / 30) / 10
 	local SkillTime = Energy / 10 + 60
 	
@@ -1659,7 +1659,7 @@ function LemuriaMageUnleashMarvel_MasterLevel2_Calc(InDamage, Strength, Dexterit
 end
 
 -- SkillID: 857, Beginner Bless Strengthener
-function LemuriaMageBless_Level1(Energy)
+function LemuriaMageBless_Level1(Index, TargetIndex, TargetClass, Energy)
 	local SkillEffect = Energy / 150
 	
 	return SkillEffect
